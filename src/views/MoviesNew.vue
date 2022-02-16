@@ -1,0 +1,74 @@
+<script>
+import axios from "axios";
+
+export default {
+  data: function () {
+    return {
+      newMovieParams: {},
+      errors: [],
+    };
+  },
+  created: function () {},
+  methods: {
+    moviesCreate: function () {
+      axios
+        .post("/movies", this.newMovieParams)
+        .then((response) => {
+          console.log("New Movie:", response.data);
+          this.$router.push("/movies");
+        })
+        .catch((error) => {
+          console.log("movies create error", error.response);
+          this.errors = error.response.data.errors;
+        });
+    },
+  },
+};
+</script>
+
+<template>
+  <div class="movies-new">
+    <form v-on:submit.prevent="moviesCreate()">
+      Title:
+      <input type="text" v-model="newMovieParams.title" />
+      <br />
+      Year:
+      <input type="text" v-model="newMovieParams.year" />
+      <br />
+      Plot:
+      <input type="text" v-model="newMovieParams.plot" />
+      <br />
+      English:
+      <input type="text" v-model="newMovieParams.english" />
+      <br />
+      <input type="submit" value="Create" />
+      <p>{{ newMovieParams }}</p>
+    </form>
+  </div>
+</template>
+
+<!-- <template>
+  <div class="movies-new">
+    <h1>New Movie</h1>
+    <form v-on:submit.prevent="moviesCreate()">
+      <ul>
+        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+      </ul>
+      Title:
+      <input type="text" v-model="newMovieParams.title" />
+      <br />
+      Year:
+      <input type="text" v-model="newMovieParams.year" />
+      <br />
+      Plot:
+      <input type="text" v-model="newMovieParams.plot" />
+      <br />
+      English:
+      <input type="text" v-model="newMovieParams.english" />
+      <br />
+      <input type="submit" value="Create" />
+    </form>
+  </div>
+</template> -->
+
+<style></style>
