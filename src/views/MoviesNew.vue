@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newMovieParams: {},
+      newMovieParams: { plot: "" },
       errors: [],
     };
   },
@@ -37,6 +37,8 @@ export default {
       <br />
       Plot:
       <input type="text" v-model="newMovieParams.plot" />
+      <br />
+      <small>{{ 100 - newMovieParams.plot.length }} characters remaining</small>
       <br />
       English:
       <input type="text" v-model="newMovieParams.english" />
