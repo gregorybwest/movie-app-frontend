@@ -42,15 +42,24 @@ export default {
       </ul>
       Title:
       <input type="text" v-model="editMovieParams.title" />
+      <br />
       Year:
       <input type="text" v-model="editMovieParams.year" />
+      <br />
       Plot:
       <input type="text" v-model="editMovieParams.plot" />
+      <br />
       English:
       <input type="text" v-model="editMovieParams.english" />
+      <br />
       <input type="submit" value="Update" />
     </form>
   </div>
 </template>
 
-<style></style>
+<style>
+input[type="text"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+</style>

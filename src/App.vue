@@ -3,18 +3,17 @@ export default {
   data: function () {
     return {
       isLoggedIn: !!localStorage.jwt,
+      flashMessage: null,
     };
   },
   watch: {
     $route: function () {
       this.isLoggedIn = !!localStorage.jwt;
+      this.flashMessage = localStorage.flashMessage;
+      localStorage.removeItem("flashMessage");
     },
   },
-  methods: {
-    // isLoggedIn: function () {
-    //   return !!localStorage.jwt;
-    // },
-  },
+  methods: {},
 };
 </script>
 

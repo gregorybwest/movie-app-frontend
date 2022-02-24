@@ -34,6 +34,7 @@ export default {
 <template>
   <div class="movies-show">
     <h2>{{ movie.plot }}</h2>
+    <h3>English: {{ movie.english }}</h3>
     <router-link v-bind:to="`/movies/${movie.id}/edit`">Edit movie</router-link>
     <br />
     <router-link to="/movies">Back to all movies</router-link>
