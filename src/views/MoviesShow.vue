@@ -39,7 +39,7 @@ export default {
     <br />
     <router-link to="/movies">Back to all movies</router-link>
     <br />
-    <button v-on:click="moviesDestroy()">Delete</button>
+    <button type="button" class="btn btn-danger" v-on:click="moviesDestroy()">Delete</button>
   </div>
 </template>
 

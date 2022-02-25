@@ -31,6 +31,31 @@ export default {
 
 <template>
   <div class="movies-index">
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-3 g-4">
+        <div class="col" v-for="movie in movies" v-bind:key="movie.id">
+          <div class="card">
+            <img src="https://www.placecage.com/300/200" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.title }}</h5>
+              <p class="card-text">
+                {{ movie.plot }}
+              </p>
+              <router-link
+                href="#"
+                class="btn btn-primary btn-lg enabeled"
+                tabindex="-1"
+                role="button"
+                aria-disabled="true"
+                v-bind:to="`/movies/${movie.id}`"
+              >
+                More Info
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     Search by Title:
     <input v-model="titleFilter" list="titles" />
     <datalist id="titles">
